@@ -2,12 +2,10 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 import QUESTIONS from "./questions.js";
 import Question from "./components/Question.jsx";
-
-const shuffledQuestions = QUESTIONS.sort(() => Math.random() - 0.5);
+import Results from "./components/Results.jsx";
 
 function App() {
-  const [availableQuestions, setAvailableQuestions] =
-    useState(shuffledQuestions);
+  const [availableQuestions, setAvailableQuestions] = useState(QUESTIONS);
   const [userAnswers, setUserAnswers] = useState([]);
 
   function handleRegisterAnswer(id, answer) {
@@ -27,10 +25,14 @@ function App() {
     <>
       <Header />
       <div id="quiz">
-        <Question
-          question={availableQuestions[0]}
-          onRegisterAnswer={handleRegisterAnswer}
-        />
+        {availableQuestions.length !== 0 ? (
+          <Question
+            question={availableQuestions[0]}
+            onRegisterAnswer={handleRegisterAnswer}
+          />
+        ) : (
+          <Results userAnswers={userAnswers} />
+        )}
       </div>
     </>
   );
