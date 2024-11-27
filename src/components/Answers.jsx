@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import QUESTIONS from "../questions.js";
 
 export default function Answers({
   answers,
@@ -40,6 +39,7 @@ export default function Answers({
               <button
                 onClick={() => onSelectAnswer(answer)}
                 className={cssClasses}
+                disabled={answerState !== ""}
               >
                 {answer}
               </button>
