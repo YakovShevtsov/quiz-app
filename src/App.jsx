@@ -8,10 +8,6 @@ function App() {
       <main>
         <Quiz />
       </main>
-      {/* <Results
-        userAnswers={userAnswers}
-        questionsList={QUESTIONS_LIST}
-      /> */}
     </>
   );
 }

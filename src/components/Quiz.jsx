@@ -19,7 +19,7 @@ export default function Quiz() {
   );
 
   if (quizIsComplete) {
-    return <Results />;
+    return <Results answers={userAnswers} />;
   }
 
   return (
